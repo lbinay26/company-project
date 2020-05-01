@@ -35,8 +35,8 @@ public class CompanyController {
     }
 
     @PutMapping(RestConstants.UPDATE_COMPANY_BY_ID)
-    public ResponseEntity updateCompanyLocationById(@PathVariable("companyId") int companyId, @RequestBody CompanyVO companyVO){
-         return companyService.updateCompanyLocationById(companyId, companyVO);
+    public ResponseEntity updateCompanyLocationAndDescById(@PathVariable("companyId") int companyId, @RequestBody CompanyVO companyVO){
+         return companyService.updateCompanyLocationAndDescById(companyId, companyVO);
 
     }
 
