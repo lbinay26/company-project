@@ -14,30 +14,35 @@ public interface CompanyService {
      *@return: ResponseEntity
      */
     ResponseEntity getCompanies();
+
+
     /*
      *This method gets a Company by Id from db
-     * @param: companyNo @type:int
+     * @param: companyId @type:int
      *@return: ResponseEntity
      */
     ResponseEntity getCompanyByCompanyId(int companyId);
+
     /*
      *This method save a Company Object in db
      * @param: companyVO @type:CompanyVo
      *@return: ResponseEntity
      */
     ResponseEntity saveCompany(CompanyVO companyVO);
+
     /*
-     *This method save a Company Object in db
-     * @param: companyNo @type:int
+     *This method delete a Company Object in db
+     * @param: companyId @type:int
      *@return: ResponseEntity
      */
     ResponseEntity deleteCompanyBycompanyId(int companyId);
+
     /*
-     *This method save a Company Object in db
-     * @param: companyNo @type:int
+     *This method update Location & Description  based on companyId in db
+     * @param: companyId @type:int
      *@return: ResponseEntity
      */
-    ResponseEntity updateCompanyLocationById(int companyId, CompanyVO companyVO);
+    ResponseEntity updateCompanyLocationAndDescById(int companyId, CompanyVO companyVO);
 
     ResponseEntity updateCompanyLocationByCompanyId(int companyId, String location);
 }
