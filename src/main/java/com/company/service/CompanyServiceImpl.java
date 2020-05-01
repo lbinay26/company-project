@@ -16,10 +16,6 @@ public class CompanyServiceImpl implements CompanyService{
     @Autowired
     private CompanyRepository companyRepository;
 
-    /*
-     *This method gets all the companies from db
-     *@return: ResponseEntity
-     */
     @Override
     public ResponseEntity getCompanies() {
         try {
@@ -32,11 +28,6 @@ public class CompanyServiceImpl implements CompanyService{
         }
     }
 
-    /*
-     *This method gets a Company by Id from db
-     * @param: companyId @type:int
-     *@return: ResponseEntity
-     */
     @Override
     public ResponseEntity getCompanyByCompanyId(int companyId) {
         try {
@@ -54,11 +45,6 @@ public class CompanyServiceImpl implements CompanyService{
         }
     }
 
-    /*
-     *This method save a Company Object in db
-     * @param: companyVO @type:CompanyVo
-     *@return: ResponseEntity
-     */
     @Override
     public ResponseEntity saveCompany(CompanyVO companyVO) {
         if(companyVO == null || companyVO.getCompanyName() == null || companyVO.getDescription() == null){
@@ -70,11 +56,6 @@ public class CompanyServiceImpl implements CompanyService{
         return ResponseEntity.ok().body(company1);
     }
 
-    /*
-     *This method delete a Company Object in db
-     * @param: companyId @type:int
-     *@return: ResponseEntity
-     */
     @Override
     public ResponseEntity deleteCompanyBycompanyId(int companyId) {
 
@@ -82,13 +63,8 @@ public class CompanyServiceImpl implements CompanyService{
         return  ResponseEntity.ok().body("Successfully Deleted");
     }
 
-    /*
-     *This method update Location & Description  based on companyId in db
-     * @param: companyId @type:int
-     *@return: ResponseEntity
-     */
     @Override
-    public ResponseEntity updateCompanyLocationAndDescById(int companyId, CompanyVO companyVO) {
+    public ResponseEntity updateCompanyLocationById(int companyId, CompanyVO companyVO) {
         Company company1 = companyRepository.getCompanyByCompanyId(new Integer(companyId));
         company1.setLocation(companyVO.getLocation());
         company1.setDescription(companyVO.getDescription());
