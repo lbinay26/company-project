@@ -8,13 +8,13 @@ import java.util.stream.Collectors;
 
 public class CompanyUtil {
     /*
-     *This method converts List<Company> to List<CompanyVO> Object
+     *This method converts List<Company> to List<CompanyVO>
      * @param: List<Company>
      *@return: List<CompanyVO>
      */
     public static List<CompanyVO> mapCompanyToCompanyVOs(List<Company> companies){
 
-        List<CompanyVO> companyVOS = companies.stream().map(company -> {
+        return companies.stream().map(company -> {
             CompanyVO companyVO = new CompanyVO();
             companyVO.setCompanyId(company.getCompanyId());
             companyVO.setCompanyName(company.getCompanyName());
@@ -25,8 +25,25 @@ public class CompanyUtil {
             return companyVO;
         }).collect(Collectors.toList());
 
-        return companyVOS;
     }
+
+    /*
+     *This method converts List<CompanyVO> to List<Company>
+     * @param: List<CompanyVO>
+     * @return: List<Company>
+     */
+    public static List<Company> mapCompanyVOsToCompany(List<CompanyVO> companyVOS){
+        return companyVOS.stream().map(companyVO -> {
+            Company company = new Company();
+            company.setCompanyName(companyVO.getCompanyName());
+            company.setDescription(companyVO.getDescription());
+            company.setLocation(companyVO.getLocation());
+            company.setEstablishedDate(companyVO.getEstablishedDate());
+            company.setEmployees(companyVO.getEmployees());
+            return company;
+        }).collect(Collectors.toList());
+    }
+
     /*
      *This method converts Company to CompanyVO Object
      * @param: Company

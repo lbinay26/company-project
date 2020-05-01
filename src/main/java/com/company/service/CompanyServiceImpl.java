@@ -103,4 +103,12 @@ public class CompanyServiceImpl implements CompanyService{
         companyRepository.updateLocation(companyId, location);
         return ResponseEntity.ok().body("location successfully updated");
     }
+
+    @Override
+    public ResponseEntity saveCompanies(List<CompanyVO> companyVOS) {
+        List<Company> companies = CompanyUtil.mapCompanyVOsToCompany(companyVOS);
+        companyRepository.saveAll(companies);
+
+        return ResponseEntity.status(HttpStatus.CREATED).body("Companies are successfully saved..!");
+    }
 }

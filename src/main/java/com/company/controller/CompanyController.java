@@ -7,6 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/api")
 public class CompanyController {
@@ -44,5 +46,10 @@ public class CompanyController {
     public ResponseEntity updateCompanyLocationByCompanyNo(@PathVariable("companyId") int companyId, @PathVariable("location") String location){
         return companyService.updateCompanyLocationByCompanyId(companyId, location);
 
+    }
+
+    @PostMapping(RestConstants.SAVE_COMPANIES)
+    public ResponseEntity saveCompanies(@RequestBody List<CompanyVO> companyVOS){
+        return companyService.saveCompanies(companyVOS);
     }
 }

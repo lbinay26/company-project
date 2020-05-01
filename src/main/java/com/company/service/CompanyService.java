@@ -45,4 +45,11 @@ public interface CompanyService {
     ResponseEntity updateCompanyLocationAndDescById(int companyId, CompanyVO companyVO);
 
     ResponseEntity updateCompanyLocationByCompanyId(int companyId, String location);
+
+    /*
+     *This method save List of Company Object in db
+     * @param: companyVO @type:List<CompanyVO>
+     *@return: ResponseEntity
+     */
+    ResponseEntity saveCompanies(List<CompanyVO> companyVOS);
 }
