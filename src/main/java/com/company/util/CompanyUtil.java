@@ -3,8 +3,8 @@ package com.company.util;
 import com.company.entities.Company;
 import com.company.vo.CompanyVO;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class CompanyUtil {
     /*
@@ -13,18 +13,18 @@ public class CompanyUtil {
      *@return: List<CompanyVO>
      */
     public static List<CompanyVO> mapCompanyToCompanyVOs(List<Company> companies){
-        List<CompanyVO> companyVOS = new ArrayList<>();
 
-        for (Company company : companies){
+        List<CompanyVO> companyVOS = companies.stream().map(company -> {
             CompanyVO companyVO = new CompanyVO();
             companyVO.setCompanyId(company.getCompanyId());
+            companyVO.setCompanyName(company.getCompanyName());
             companyVO.setLocation(company.getLocation());
             companyVO.setDescription(company.getDescription());
-            companyVO.setCompanyName(company.getCompanyName());
             companyVO.setEstablishedDate(company.getEstablishedDate());
             companyVO.setEmployees(company.getEmployees());
-            companyVOS.add(companyVO);
-        }
+            return companyVO;
+        }).collect(Collectors.toList());
+
         return companyVOS;
     }
     /*
