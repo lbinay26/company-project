@@ -5,7 +5,7 @@ my:
 employee: "{ id: '001', name: 'Binay'}"
 
 db:
-  url: http://localhost:3660
+  url: http://localhost:3660/external
   username: admin
   password: admin
   driver: db.mysql
