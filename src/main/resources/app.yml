@@ -1,5 +1,5 @@
 my:
-  greetings: Hello World
+  greetings: Hello World from external source
   list:
     values: one,two,three
 employee: "{ id: '001', name: 'Binay'}"
